@@ -1,10 +1,8 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class InsertionSort {
 
     public static int[] integerInsertion(int[] values) {
-        double startTime = System.currentTimeMillis();
         int key, j;
         for (int i = 1; i < values.length; i++) {
             key = values[i];
@@ -15,14 +13,10 @@ public class InsertionSort {
             }
             values[j + 1] = key;
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static double[] doubleInsertion(double[] values) {
-        double startTime = System.currentTimeMillis();
         double key;
         int j;
         for (int i = 1; i < values.length; i++) {
@@ -34,14 +28,10 @@ public class InsertionSort {
             }
             values[j + 1] = key;
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static char[] charInsertion(char[] values) {
-        double startTime = System.currentTimeMillis();
         char key;
         int j;
         for (int i = 1; i < values.length; i++) {
@@ -53,14 +43,10 @@ public class InsertionSort {
             }
             values[j + 1] = key;
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static String[] stringInsertion(String[] values) {
-        double startTime = System.currentTimeMillis();
         String key;
         int j;
         for (int i = 1; i < values.length; i++) {
@@ -72,14 +58,11 @@ public class InsertionSort {
             }
             values[j + 1] = key;
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static void main(String[] args) {
-        int size = 50;
+        int size = 5000000;
 
         char[] charLibrary = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         String stringAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -91,8 +74,8 @@ public class InsertionSort {
         char[] charValues = new char[size+1];
         String[] stringValues = new String[size+1];
         for (int i = 0; i <= size; i++) {
-            intValues[i] = i;
-            doubleValues[i] = i;
+            intValues[i] = (int) (Math.random() * 10000 + 0);
+            doubleValues[i] = (Math.random() * 10000 + 0);
             charValues[i] = charLibrary[(int) (Math.random() * (charLibrary.length) + 0)];
 
             for (int j = 0; j <= 4; j++) {
@@ -105,20 +88,26 @@ public class InsertionSort {
             sb = new StringBuilder();
         }
 
-        //System.out.println("Unsorted int array: " + Arrays.toString(intValues));
+        double startTime = System.currentTimeMillis();
         integerInsertion(intValues);
-        //System.out.println("Sorted int array: " + Arrays.toString(integerInsertion(intValues)));
+        double endTime = System.currentTimeMillis();
+        System.out.println("Int Execution Time: " + (endTime - startTime));
 
-        /*
-        System.out.println("Unsorted double array: " + Arrays.toString(doubleValues));
-        System.out.println("Sorted double array: " + Arrays.toString(doubleInsertion(doubleValues)));
+        startTime = System.currentTimeMillis();
+        doubleInsertion(doubleValues);
+        endTime = System.currentTimeMillis();
+        System.out.println("Double Execution Time: " + (endTime - startTime));
 
-        System.out.println("Unsorted char array: " + Arrays.toString(charValues));
-        System.out.println("Sorted char array: " + Arrays.toString(charInsertion(charValues)));
+        startTime = System.currentTimeMillis();
+        charInsertion(charValues);
+        endTime = System.currentTimeMillis();
+        System.out.println("Char Execution Time: " + (endTime - startTime));
 
-        System.out.println("Unsorted string array: " + Arrays.toString(stringValues));
-        System.out.println("Sorted string array: " + Arrays.toString(stringInsertion(stringValues)));
-        */
+        startTime = System.currentTimeMillis();
+        stringInsertion(stringValues);
+        endTime = System.currentTimeMillis();
+        System.out.println("String Execution Time: " + (endTime - startTime));
+
     }
 
 }

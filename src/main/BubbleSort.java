@@ -1,4 +1,3 @@
-import java.util.Arrays;
 import java.util.Random;
 
 public class BubbleSort {
@@ -76,7 +75,7 @@ public class BubbleSort {
     }
 
     public static void main(String[] args) {
-        int size = 5000000;
+        int size = 500000;
 
         char[] charLibrary = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         String stringAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -101,21 +100,26 @@ public class BubbleSort {
             stringValues[i] = sb.toString();
             sb = new StringBuilder();
         }
-
-        //System.out.println("Unsorted int array: " + Arrays.toString(intValues));
+        double startTime = System.currentTimeMillis();
         integerBubble(intValues);
-        //System.out.println("Sorted int array: " + Arrays.toString(integerBubble(intValues)));
+        double endTime = System.currentTimeMillis();
+        System.out.println("Int Execution Time: " + (endTime - startTime));
 
-        /*
-        System.out.println("Unsorted double array: " + Arrays.toString(doubleValues));
-        System.out.println("Sorted double array: " + Arrays.toString(doubleBubble(doubleValues)));
+        startTime = System.currentTimeMillis();
+        doubleBubble(doubleValues);
+        endTime = System.currentTimeMillis();
+        System.out.println("Double Execution Time: " + (endTime - startTime));
 
-        System.out.println("Unsorted char array: " + Arrays.toString(charValues));
-        System.out.println("Sorted char array: " + Arrays.toString(charBubble(charValues)));
+        startTime = System.currentTimeMillis();
+        charBubble(charValues);
+        endTime = System.currentTimeMillis();
+        System.out.println("Char Execution Time: " + (endTime - startTime));
 
-        System.out.println("Unsorted string array: " + Arrays.toString(stringValues));
-        System.out.println("Sorted string array: " + Arrays.toString(stringBubble(stringValues)));
-        */
+        startTime = System.currentTimeMillis();
+        stringBubble(stringValues);
+        endTime = System.currentTimeMillis();
+        System.out.println("String Execution Time: " + (endTime - startTime));
+
     }
 
 }
