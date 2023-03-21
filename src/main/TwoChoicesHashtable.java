@@ -7,6 +7,9 @@ public class TwoChoicesHashtable {
 	private class Node{
 		public String key;
 		public Node next = null;
+		private Node(String key) {
+			this.key = key;
+		}
 	}
 	
 	private int bucketCount(int index) {	//helper method to count collisions
@@ -43,9 +46,10 @@ public class TwoChoicesHashtable {
 		return ((2*hashcode) % 10);
 	}
 	
-	public void add(Node toAdd) {
-		int index1 = hash1(hashcode(toAdd.key));
-		int index2 = hash2(hashcode(toAdd.key));
+	public void add(String key) {
+		Node toAdd = new Node(key);
+		int index1 = hash1(hashcode(key));
+		int index2 = hash2(hashcode(key));
 		if (table.get(index1) != null && table.get(index2) != null) {	//both buckets occupied
 			if (bucketCount(index1) > bucketCount(index2)) {	//right has less collisions
 				lastNode(index2).next = toAdd;
