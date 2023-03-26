@@ -3,7 +3,6 @@ import java.util.Random;
 public class BubbleSort {
 
     public static int[] integerBubble(int[] values) {
-        double startTime = System.currentTimeMillis();
         int temp;
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length - i - 1; j++) {
@@ -14,14 +13,10 @@ public class BubbleSort {
                 }
             }
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static double[] doubleBubble(double[] values) {
-        double startTime = System.currentTimeMillis();
         double temp;
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length - i - 1; j++) {
@@ -32,9 +27,6 @@ public class BubbleSort {
                 }
             }
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
@@ -50,14 +42,10 @@ public class BubbleSort {
                 }
             }
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static String[] stringBubble(String[] values) {
-        double startTime = System.currentTimeMillis();
         String temp;
         for (int i = 0; i < values.length; i++) {
             for (int j = 0; j < values.length - i - 1; j++) {
@@ -68,14 +56,11 @@ public class BubbleSort {
                 }
             }
         }
-
-        double endTime = System.currentTimeMillis();
-        System.out.println("Execution Time: " + (endTime - startTime));
         return values;
     }
 
     public static void main(String[] args) {
-        int size = 500000;
+        int size = 100000;
 
         char[] charLibrary = {'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'};
         String stringAlphabet = "abcdefghijklmnopqrstuvwxyz";
@@ -100,9 +85,11 @@ public class BubbleSort {
             stringValues[i] = sb.toString();
             sb = new StringBuilder();
         }
-        double startTime = System.currentTimeMillis();
+        double startTime, endTime;
+
+        startTime = System.currentTimeMillis();
         integerBubble(intValues);
-        double endTime = System.currentTimeMillis();
+        endTime = System.currentTimeMillis();
         System.out.println("Int Execution Time: " + (endTime - startTime));
 
         startTime = System.currentTimeMillis();

@@ -176,7 +176,7 @@ public class QuickSort {
     }
 
     public static void main(String args[]) {
-        int size = 5000000;
+        int size = 50;
 
         ArrayList<Integer> intList = new ArrayList<Integer>(Arrays.asList());
         ArrayList<Double> doubleList = new ArrayList<Double>(Arrays.asList());
@@ -203,9 +203,10 @@ public class QuickSort {
             sb = new StringBuilder();
         }
 
-        double startTime = System.currentTimeMillis();
+        double startTime, endTime;
+        startTime = System.currentTimeMillis();
         intQuickSort(intList);
-        double endTime = System.currentTimeMillis();
+        endTime = System.currentTimeMillis();
         System.out.println("Int Execution Time: " + (endTime - startTime));
 
         startTime = System.currentTimeMillis();
